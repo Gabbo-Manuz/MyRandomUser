@@ -1,8 +1,88 @@
 * {
     padding: 0px;
     margin: 0px;
+    color: #2D6A4F;
+    box-sizing: content-box;
+    font-family: "Merriweather Sans", sans-serif;
+    font-weight: 800;
+    font-style: normal;
 }
 
-html, body{
-    height: 100%;    
+html,
+body {
+    height: 100%;
+
+    background-color: #D8F3DC;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 5px;
+
+    background-color: #52B788;
+}
+
+main {
+    width: 100%;
+    height: 774px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#boxCard {
+    width: 800px;
+    height: 420px;
+    overflow: auto;
+    position: relative;
+    padding: 0px;
+    border: 2px, #1B4332, solid;
+    border-radius: 20px;
+}
+
+#boxCardScrol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+#boxCard::-webkit-scrollbar {
+    /*Cosa importante da segnare, semplicimente dice che la barra di boxCard deve avere display none*/
+    display: none;
+}
+
+#barraProgressioneCard {
+    position:sticky;
+    width: 2px;
+    height: 4px;
+    bottom: 0;
+    background-color: black;
+    width: 100%;
+}
+
+.card {
+    width: 360px;
+    height: 160px;
+    margin: 10px 5px ;    
+    background-color: #7dd181;
+    border-radius: 20px;
+    border: 2px, solid, #2D6A4F;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    padding: 5px;
+
+    background-color: #52B788;
 }

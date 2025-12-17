@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./script.js"></script>
+    <script src="./JSAxios/axios@1.13.min.js"></script>
+    <script src="./JSAxios/libreria.js"></script>
+    <script defer src="./script.js"></script>    
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -22,12 +24,30 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <link rel="icon" href="./Img/IconaGlobo.png" />
-    <title>My Random User</title>
+    <title>Random User</title>
   </head>
 
   <body>
     <header>
-        
+      <div class="text-center">
+        <h1 class="fw-bold">RANDOM USER</h1>
+        <h3>Enjoy discovering people all over the world</h3>
+      </div>
     </header>
+    <main>
+      <div id="boxCard">
+        <div id="boxCardScrol">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+        </div>
+        <div id="barraProgressioneCard"></div>
+      </div>
+    </main>
+    <footer>
+      <div>Contact Me</div>
+    </footer>
   </body>
 </html>
