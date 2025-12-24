@@ -1,10 +1,12 @@
+/* GENERALI */
+
 * {
     padding: 0px;
     margin: 0px;
     color: #2D6A4F;
     box-sizing: content-box;
-    font-family: "Merriweather Sans", sans-serif;
-    font-weight: 800;
+    font-family: "Google Sans Code", sans-serif;
+    font-weight: 600;
     font-style: normal;
 }
 
@@ -13,6 +15,8 @@ body {
     height: 100%;
     background-color: #D8F3DC;
 }
+
+/* HEADER */
 
 header {
     display: flex;
@@ -24,6 +28,8 @@ header {
     background-color: #52B788;
 }
 
+/* MAIN */
+
 main {
     width: 100%;
     height: 774px;
@@ -34,7 +40,7 @@ main {
 }
 
 #boxCard {
-    width: 800px;
+    width: 900px;
     height: 420px;
     overflow: auto;
     position: relative;
@@ -43,19 +49,114 @@ main {
     border-radius: 20px;
 }
 
+#boxCard::-webkit-scrollbar {
+    /*Cosa importante da segnare, semplicimente dice che la barra di boxCard deve avere display none*/
+    display: none;
+}
+
 #boxCardScrol {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
 }
 
-#boxCard::-webkit-scrollbar {
-    /*Cosa importante da segnare, semplicimente dice che la barra di boxCard deve avere display none*/
-    display: none;
+.card {
+    width: 400px;
+    height: 180px;
+    perspective: 1000px;
+    margin: 10px 5px;
+    border: 0px;
+    background: transparent;
+}
+
+.cardInner {
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    position: relative;
+    transition: transform 1s;
+}
+
+.cardInner.flipped {
+    transform: rotateY(180deg);
+}
+
+.card:hover .cardInner:not(.flipped) {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.cardFront,
+.cardBack {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    backface-visibility: hidden;
+    background-color: #7dd181;
+    border-radius: 20px;
+    border: 2px, solid, #2D6A4F;
+}
+
+.cardFront {
+    transform: rotateY(0deg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    transition: transform 0.45s;
+}
+
+.imgFront{
+    width: 90px;
+    height: 90px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    border: 2px solid #2D6A4F;
+}
+
+.cardBack {
+    transform: rotateY(180deg);
+}
+
+.textPerson {
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    line-height: 120px;
+}
+
+.navigatePerson {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navPersonButton {
+    text-align: center;
+    line-height: 20px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 0.8s;
+
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.navPersonButton:hover {
+    transform: scale(1.3);
 }
 
 #barraProgressioneCard {
-    position:sticky;
+    position: sticky;
     width: 2px;
     height: 4px;
     bottom: 0;
@@ -63,20 +164,9 @@ main {
     width: 100%;
 }
 
-.card {
-    width: 360px;
-    height: 160px;
-    margin: 10px 5px ;   
-    
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    align-items: center;
 
-    background-color: #7dd181;
-    border-radius: 20px;
-    border: 2px, solid, #2D6A4F;
-}
+
+/* FOOTER */
 
 footer {
     position: fixed;
