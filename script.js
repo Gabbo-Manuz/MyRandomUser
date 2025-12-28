@@ -22,7 +22,7 @@ const navPerson = [
     `,
   },
   {
-    text: "My age is ",
+    text: "My birthday is ",
     svg: `
     <svg viewBox="0 0 24 24"
      width="24"
@@ -41,7 +41,7 @@ const navPerson = [
     `,
   },
   {
-    text: "My location is ",
+    text: "My street is ",
     svg: `
       <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="black" stroke-width="2">
         <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/>
@@ -437,12 +437,17 @@ function createCardFront(person) {
 }
 
 function createCardBack(person) {
+  /*
+  street
+: 
+{number: 9877, name: 'Bruce St'}
+  */
   let vectPerson = [
     `${person.name.first} ${person.name.last}`,
     person.email,
-    person.registered.age,
-    person.location.country,
-    person.phone,
+    person.dob.date.split("T")[0],
+    `${person.location.street.name} ${person.location.street.number}`,
+    person.cell,
     person.login.password,
   ];
   let imgBack = $("<div/>")

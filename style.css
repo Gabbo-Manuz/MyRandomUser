@@ -146,6 +146,7 @@ main {
     width: 240px;
     background-color: #7dd181;
     border-radius: 10px;
+    text-align: center;
 }
 
 #generateUser {
