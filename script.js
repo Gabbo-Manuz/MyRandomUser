@@ -1,10 +1,6 @@
 "use strict";
 
-let params = {};
-
-let boolNavPersonButtonClicked = false;
-let boxCardScrol = document.getElementById("boxCardScrol"),
-  barraProgressioneCard = document.getElementById("barraProgressioneCard");
+//#region Costanti Di Dati
 
 const navPerson = [
   {
@@ -317,11 +313,35 @@ const bandiere = [
   { nome: "Zimbabwe", nat: "ZW", flag: "https://flagcdn.com/w80/zw.png" },
 ];
 
+//#endregion
+
+//#region Puntatori ad Elementi del DOM
+
+const boxCardScrol = document.getElementById("boxCardScrol"),
+  barraProgressioneCard = document.getElementById("barraProgressioneCard"),
+  btnGenerateUser = document.getElementById("generateUser"),
+  lstGender = document.getElementById("lstGender"),
+  boxCheckbox = document.getElementById("boxCheckbox"),
+  textRicercaFlag = document.getElementById("textRicercaFlag");
+
+//#endregion
+
+//#region Eventi Associati ad Elementi del DOM statici
+
 $(document).on("click", ".cardInner", function () {
   if (!boolNavPersonButtonClicked) {
     $(this).toggleClass("flipped");
   }
   boolNavPersonButtonClicked = false;
+});
+
+$(document).on("click", ".checkboxFlag", function () {
+  if (this.checked) {
+    params.nat = $(this).attr("NAT");
+  } else {
+    params.nat = "";
+  }
+  console.log(params);
 });
 
 boxCard.addEventListener("scroll", function () {
@@ -332,7 +352,7 @@ boxCard.addEventListener("scroll", function () {
   }
 });
 
-$("#numberUser").on("change", function (event) {
+$("#numberUser").on("change", function () {
   if ($(this).val() <= 0 || $(this).val() == "") {
     $(this).val(1);
   } else if ($(this).val() > 5000) {
@@ -341,27 +361,49 @@ $("#numberUser").on("change", function (event) {
   $("#textNUser").text(`N° User: ${$(this).val()}`);
   $("#rangeUser").val($(this).val());
   params.results = $(this).val();
-  loadCard(params);
+  console.log(params);
 });
 
 $("#rangeUser").on("change", function () {
   $("#numberUser").val($(this).val());
   $("#textNUser").text(`N° User: ${$(this).val()}`);
   params.results = $(this).val();
+  console.log(params);
+});
+
+btnGenerateUser.addEventListener("click", function () {
   loadCard(params);
 });
 
-loadCard(params);
+lstGender.addEventListener("change", function () {
+  params.gender = this.value;
+  console.log(params);
+});
+
+textRicercaFlag.addEventListener("input", function () {
+  nation = this.value;
+  loadCheckbox(nation)
+});
+
+//#endregion
+
+let params = {},
+  boolNavPersonButtonClicked = false,
+  nation = "";
+
+barraProgressioneCard.style.display = "none";
+
+loadCheckbox(nation);
 
 async function loadCard(params) {
-  barraProgressioneCard.style.width = "0%"
+  barraProgressioneCard.style.width = "0%";
   boxCardScrol.innerHTML = "";
   let HTTPResponse = await loadData("https://randomuser.me", "./api", params);
-  console.log(HTTPResponse);
+  console.log(HTTPResponse.data);
   if (HTTPResponse.data.info.results <= 4) {
     barraProgressioneCard.style.display = "none";
   } else {
-    barraProgressioneCard.style.display = ""; 
+    barraProgressioneCard.style.display = "";
   }
   HTTPResponse.data.results.forEach(function (person, i) {
     $("#boxCardScrol").append(
@@ -431,4 +473,24 @@ function createCardBack(person) {
 
 async function loadData(URLSito, url, params) {
   return await ajax.sendRequest("GET", URLSito, url, params);
+}
+
+function loadCheckbox(nation) {
+  boxCheckbox.innerHTML = ""
+  bandiere.forEach(function (bandiera, i) {
+    if (bandiera.nome.toUpperCase().startsWith(nation.toUpperCase()) || nation == "") {
+      $(boxCheckbox).append(createBoxCheck(bandiera));
+    }
+  });
+}
+
+function createBoxCheck(bandiera) {
+  let imgBandiera = $("<div/>")
+    .addClass("imgBandiera")
+    .css({ backgroundImage: `url(${bandiera.flag})` });
+  let checkbox = $("<input/>")
+    .addClass("checkboxFlag")
+    .attr("type", "checkbox")
+    .attr("NAT", bandiera.nat);
+  return $("<div/>").addClass("boxCheckbox").append(imgBandiera, checkbox);
 }
