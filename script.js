@@ -105,22 +105,29 @@ const stars = [
 
 //#region Puntatori ad Elementi del DOM
 
-const boxCardScrol = document.getElementById("boxCardScrol"),
-  barraProgressioneCard = document.getElementById("barraProgressioneCard"),
-  btnGenerateUser = document.getElementById("generateUser"),
-  lstGender = document.getElementById("lstGender"),
-  boxCheckbox = document.getElementById("boxCheckbox"),
-  textRicercaFlag = document.getElementById("textRicercaFlag");
+const boxCardGrid = document.getElementById("boxCardGrid"),
+  scrollBarBoxCardGrid = document.getElementById("scrollBarBoxCardGrid"),
+  btnbntGenerateUser = document.getElementById("bntGenerateUser"),
+  lstlstGender = document.getElementById("lstlstGender"),
+  boxCheckboxGrid = document.getElementById("boxCheckboxGrid"),
+  textRicercaFlag = document.getElementById("textRicercaFlag"),
+  boxInfoValues = document.getElementsByClassName("boxInfoValue"),
+  boxInfoImg = document.querySelector(".boxInfoImg");
 
 //#endregion
 
 //#region Eventi Associati ad Elementi del DOM statici
 
 $(document).on("click", ".cardInner", function () {
-  if (!boolNavPersonButtonClicked || !boolStarClicked) {
+  if (
+    !boolNavPersonButtonClicked &&
+    !boolStarClicked &&
+    !boolInfoButtonClicked
+  ) {
     $(this).toggleClass("flipped");
   }
   boolNavPersonButtonClicked = false;
+  boolInfoButtonClicked = false;
   boolStarClicked = false;
 });
 
@@ -137,42 +144,38 @@ boxCard.addEventListener("scroll", function () {
   let totaleScrollabile = this.scrollHeight - this.clientHeight;
   if (totaleScrollabile > 0) {
     let percentuale = (this.scrollTop / totaleScrollabile) * 100;
-    barraProgressioneCard.style.width = percentuale + "%";
+    scrollBarBoxCardGrid.style.width = percentuale + "%";
   }
 });
 
-$("#numberUser").on("change", function () {
+$("#inputNumberUser").on("change", function () {
   if ($(this).val() <= 0 || $(this).val() == "") {
     $(this).val(1);
   } else if ($(this).val() > 5000) {
     $(this).val(5000);
   }
-  $("#textNUser").text(`N° User: ${$(this).val()}`);
-  $("#rangeUser").val($(this).val());
+  $("#labelNumberUser").text(`N° User: ${$(this).val()}`);
+  $("#inputRangeUser").val($(this).val());
   params.results = $(this).val();
   console.log(params);
 });
 
-$("#rangeUser").on("change", function () {
-  $("#numberUser").val($(this).val());
-  $("#textNUser").text(`N° User: ${$(this).val()}`);
+$("#inputRangeUser").on("change", function () {
+  $("#inputNumberUser").val($(this).val());
+  $("#labelNumberUser").text(`N° User: ${$(this).val()}`);
   params.results = $(this).val();
   console.log(params);
 });
 
-btnGenerateUser.addEventListener("click", function () {
+btnbntGenerateUser.addEventListener("click", function () {
   loadCard(params);
 });
 
-lstGender.addEventListener("change", function () {
-  params.gender = this.value;
+lstlstGender.addEventListener("change", function () {
+  params.lstGender = this.value;
   console.log(params);
 });
 
-textRicercaFlag.addEventListener("input", function () {
-  nation = this.value;
-  loadCheckbox(nation);
-});
 
 //#endregion
 
@@ -181,25 +184,28 @@ let params = {
   },
   boolNavPersonButtonClicked = false,
   boolStarClicked = false,
-  nation = "";
+  boolInfoButtonClicked = false,
+  nation = "",
+  indexUser = 0;
 
-barraProgressioneCard.style.display = "none";
+scrollBarBoxCardGrid.style.display = "none";
 
 loadCheckbox(params.nat);
 
 async function loadCard(params) {
-  barraProgressioneCard.style.width = "0%";
-  boxCardScrol.innerHTML = "";
+  indexUser = 0
+  scrollBarBoxCardGrid.style.width = "0%";
+  boxCardGrid.innerHTML = "";
   let HTTPResponse = await loadData("https://randomuser.me", "./api", params);
   console.log(HTTPResponse.data);
   if (HTTPResponse.data.info.results <= 4) {
-    barraProgressioneCard.style.display = "none";
+    scrollBarBoxCardGrid.style.display = "none";
   } else {
-    barraProgressioneCard.style.display = "";
+    scrollBarBoxCardGrid.style.display = "";
   }
   HTTPResponse.data.results.forEach(function (person, i) {
     console.log(person.nat);
-    $("#boxCardScrol").append(
+    $("#boxCardGrid").append(
       $("<div/>")
         .addClass("card")
         .append(
@@ -237,12 +243,7 @@ function createCardFront(person) {
 }
 
 function createCardBack(person) {
-  /*
-  street
-: 
-{number: 9877, name: 'Bruce St'}
-  */
-  let vectPerson = [
+  let vectUserInfoNavButton = [
     `${person.name.first} ${person.name.last}`,
     person.email,
     person.dob.date.split("T")[0],
@@ -250,37 +251,77 @@ function createCardBack(person) {
     person.cell,
     person.login.password,
   ];
+  let vectUserInfoBoxInfoModal = [
+    `${person.name.title} ${person.name.first} ${person.name.last}`,
+    person.login.username,
+    person.login.password,
+    person.email,
+    person.lstGender,
+    `${person.dob.age} years (${person.dob.date.split("T")[0]})`,
+    `${person.location.country} (${person.nat})`,
+    person.location.state,
+    person.location.city,
+    `${person.location.street.name} ${person.location.street.number}`,
+    person.location.postcode,
+    person.cell,
+    person.phone,
+  ];
+  let infoButton = $("<div/>")
+    .addClass("infoButton")
+    .attr("data-bs-target", "#infoModal")
+    .attr("data-bs-toggle", "modal")
+    .html(
+      `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M260-320q47 0 91.5 10.5T440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6Zm260 42q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-396q-33-14-68.5-21t-71.5-7q-47 0-93 12t-87 36v394Zm-40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q58 0 113.5 15T480-740q51-30 106.5-45T700-800q52 0 102 12t96 36q11 5 16.5 15t5.5 21v482q0 23-19.5 35t-40.5 1q-37-20-77.5-31T700-240q-60 0-116 21t-104 59ZM280-494Z"/></svg>`
+    )
+    .click(function () {
+      boolInfoButtonClicked = true;
+      boxInfoImg.style.backgroundImage = `url(${person.picture.large})`;
+      loadBoxInfoModal(vectUserInfoBoxInfoModal);
+    });
   let imgBack = $("<div/>")
     .addClass("imgBack")
     .css({ backgroundImage: `url(${person.picture.thumbnail})` });
   let divTextPerson = $("<div/>")
     .addClass("textPerson")
     .append(
-      $("<div/>").addClass("textPersonGeneral").text("..."),
-      $("<div/>").addClass("textPersonValue")
+      $("<div/>")
+        .addClass("textPersonGeneral")
+        .text("...")
+        .attr("id", `textPersonGeneral${indexUser}`),
+      $("<div/>")
+        .addClass("textPersonValue")
+        .attr("id", `textPersonValue${indexUser}`)
     );
   let divNavigatePerson = $("<div/>").addClass("navigatePerson");
   navPerson.forEach(function (jsonCard, i) {
     divNavigatePerson.append(
       $("<div/>")
-        .addClass("navPersonButton")
-        .val(vectPerson[i])
+        .addClass(`navPersonButton`)
+        .val(vectUserInfoNavButton[i])
         .attr("textDisplay", jsonCard.text)
+        .attr("index", indexUser)
         .html(jsonCard.svg)
         .hover(function () {
-          $(".textPersonGeneral").text(`${$(this).attr("textDisplay")}`);
-          $(".textPersonValue").text(`${$(this).val()}`);
+          $(`#textPersonGeneral${$(this).attr("index")}`).text(
+            `${$(this).attr("textDisplay")}`
+          );
+          $(`#textPersonValue${$(this).attr("index")}`).text(`${$(this).val()}`);
         })
         .click(function () {
           boolNavPersonButtonClicked = true;
-          $(".textPersonGeneral").text(`${$(this).attr("textDisplay")}`);
-          $(".textPersonValue").text(`${$(this).val()}`);
+          $(`#textPersonGeneral${$(this).attr("index")}`).text(
+            `${$(this).attr("textDisplay")}`
+          );
+          $(`#textPersonValue${$(this).attr("index")}`).text(
+            `${$(this).val()}`
+          );
         })
     );
   });
+  indexUser++
   return $("<div/>")
     .addClass("cardBack")
-    .append(divTextPerson, divNavigatePerson, imgBack);
+    .append(divTextPerson, divNavigatePerson, imgBack, infoButton);
 }
 
 async function loadData(URLSito, url, params) {
@@ -288,13 +329,13 @@ async function loadData(URLSito, url, params) {
 }
 
 function loadCheckbox(nation) {
-  boxCheckbox.innerHTML = "";
+  boxCheckboxGrid.innerHTML = "";
   bandiere.forEach(function (bandiera, i) {
     if (
       bandiera.nome.toUpperCase().startsWith(nation.toUpperCase()) ||
       nation == ""
     ) {
-      $(boxCheckbox).append(createBoxCheck(bandiera));
+      $(boxCheckboxGrid).append(createBoxCheck(bandiera));
     }
   });
 }
@@ -307,6 +348,11 @@ function createBoxCheck(bandiera) {
     .addClass("checkboxFlag")
     .attr("type", "checkbox")
     .attr("NAT", bandiera.nat);
-  return $("<div/>").addClass("boxCheckbox").append(imgBandiera, checkbox);
+  return $("<div/>").addClass("boxCheckboxGrid").append(imgBandiera, checkbox);
 }
 
+function loadBoxInfoModal(vectInfo) {
+  Array.from(boxInfoValues).forEach(function (boxInfoValue, i) {
+    boxInfoValue.textContent = vectInfo[i];
+  });
+}

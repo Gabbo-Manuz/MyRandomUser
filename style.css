@@ -1,4 +1,4 @@
-/* GENERALI */
+/* #region GLOBAL */
 
 * {
     padding: 0px;
@@ -16,7 +16,9 @@ body {
     background-color: #D8F3DC;
 }
 
-/* HEADER */
+/* #endregion GLOBAL*/
+
+/* #region HEADER */
 
 header {
     display: flex;
@@ -28,7 +30,9 @@ header {
     background-color: #52B788;
 }
 
-/* MAIN */
+/* #endregion HEADER*/
+
+/* #region MAIN */
 
 main {
     height: 774px;
@@ -39,27 +43,27 @@ main {
     justify-content: center;
 }
 
-#navBarDisplayCard{
+/* #region NAVBAR CARD */
+
+#navBarCard {
     width: 1258px;
     height: 50px;
     border-radius: 20px;
     border: 2px #1B4332 solid;
 }
 
-#containerDisplayCard {
+/* #endregion NAVBAR CARD*/
+
+/* #region CONTAINER CARD */
+
+#containerCard {
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: center;
 }
 
-.star{
-    position: fixed;
-    margin-top: 4px;
-    margin-right: 4px;
-    top: 0px;
-    right: 0px ;
-}
+/* #region BoxCustomizeUser*/
 
 #boxCustomizeUser {
     width: 340px;
@@ -75,14 +79,67 @@ main {
 }
 
 #slider,
-#gender {
+#lstGender {
     width: 100%;
     height: 50px;
     text-align: center;
     margin: 10px;
 }
 
-#boxCheckbox {
+/* #region Slider */
+
+#slider>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#slider #inputRangeUser,
+#inputNumberUser {
+    margin: 5px;
+}
+
+#slider #inputRangeUser {
+    width: 200px;
+}
+
+#slider #inputRangeUser::-webkit-slider-thumb {
+    background-color: #1B4332;
+}
+
+#slider #inputRangeUser::-webkit-slider-runnable-track {
+    background-color: #7dd181;
+}
+
+#slider #inputNumberUser {
+    width: 40px;
+    height: 20px;
+    background-color: #7dd181;
+    color: #2D6A4F;
+    text-align: center;
+}
+
+#slider #inputNumberUser::-webkit-outer-spin-button,
+#inputNumberUser::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* #endregion Slider */
+
+/* #region List */
+
+#lstGender>#lstlstGender {
+    width: 240px;
+    background-color: #7dd181;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* #endregion List */
+
+/* #region CheckBox */
+
+#boxCheckboxGrid {
     width: 100%;
     height: 300px;
     overflow: auto;
@@ -94,12 +151,12 @@ main {
     grid-row-gap: 20px;
 }
 
-#boxCheckbox::-webkit-scrollbar {
+#boxCheckboxGrid::-webkit-scrollbar {
     /*Cosa importante da segnare, semplicimente dice che la barra di boxCard deve avere display none*/
     display: none;
 }
 
-.boxCheckbox {
+.boxCheckboxGrid {
     width: 150px;
     height: 50px;
     display: flex;
@@ -119,64 +176,19 @@ main {
     margin: 5px;
 }
 
-#textRicercaFlag {
-    text-align: center;
-    width: 300px;
-    margin: 10px;
-    background-color: #7dd181;
-    border: 1px solid #1B4332;
-    border-radius: 20px;
-}
+/* #endregion CheckBox */
 
-#slider>div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-#slider #rangeUser,
-#numberUser {
-    margin: 5px;
-}
-
-#slider #rangeUser {
-    width: 200px;
-}
-
-#slider #rangeUser::-webkit-slider-thumb {
-    background-color: #1B4332;
-}
-
-#slider #rangeUser::-webkit-slider-runnable-track {
-    background-color: #7dd181;
-}
-
-#slider #numberUser {
-    width: 40px;
-    height: 20px;
-    background-color: #7dd181;
-    color: #2D6A4F;
-    text-align: center;
-}
-
-#slider #numberUser::-webkit-outer-spin-button,
-#numberUser::-webkit-inner-spin-button {
-    display: none;
-}
-
-#gender>#lstGender {
-    width: 240px;
-    background-color: #7dd181;
-    border-radius: 10px;
-    text-align: center;
-}
-
-#generateUser {
+#bntGenerateUser {
     width: 240px;
     margin: 10px;
     background-color: #7dd181;
     border-radius: 10px;
 }
+
+/* #endregion BoxCustomizeUser */
+
+/* #region BoxCard */
 
 #boxCard {
     width: 900px;
@@ -193,11 +205,22 @@ main {
     display: none;
 }
 
-#boxCardScrol {
+#boxCardGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
 }
+
+#scrollBarBoxCardGrid {
+    position: sticky;
+    width: 0%;
+    height: 4px;
+    bottom: 0;
+    background-color: #1B4332;
+    width: 100%;
+}
+
+/* #region Card */
 
 .card {
     width: 370px;
@@ -208,6 +231,20 @@ main {
     background: transparent;
     user-select: none;
 }
+
+.cardFront,
+.cardBack {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    backface-visibility: hidden;
+    background-color: #7dd181;
+    border-radius: 20px;
+    border: 2px, solid, #2D6A4F;
+}
+
+/* #region Card Inner*/
 
 .cardInner {
     height: 100%;
@@ -226,17 +263,9 @@ main {
     transform: scale(1.03);
 }
 
-.cardFront,
-.cardBack {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    position: absolute;
-    backface-visibility: hidden;
-    background-color: #7dd181;
-    border-radius: 20px;
-    border: 2px, solid, #2D6A4F;
-}
+/* #endregion Card Inner*/
+
+/* #region Card Front*/
 
 .cardFront {
     transform: rotateY(0deg);
@@ -257,8 +286,34 @@ main {
     border: 2px solid #2D6A4F;
 }
 
+.star {
+    position: fixed;
+    margin-top: 4px;
+    margin-right: 4px;
+    top: 0px;
+    right: 0px;
+}
+
+/* #endregion Card Front*/
+
+/* #region Card Back */
 .cardBack {
     transform: rotateY(180deg);
+}
+
+.infoButton {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.5s transform;
+}
+
+.infoButton:hover {
+    transform: scale(1.04);
 }
 
 .textPerson {
@@ -322,18 +377,17 @@ main {
     transform: scale(1.3);
 }
 
-#barraProgressioneCard {
-    position: sticky;
-    width: 0%;
-    height: 4px;
-    bottom: 0;
-    background-color: #1B4332;
-    width: 100%;
-}
+/* #endregion Card Back*/
 
+/* #endregion Card */
 
+/* #endregion BoxCard*/
 
-/* FOOTER */
+/* #endregion CONTAINER CARD */
+
+/* #endregion MAIN */
+
+/* #region FOOTER */
 
 footer {
     position: fixed;
@@ -348,3 +402,37 @@ footer {
 
     background-color: #52B788;
 }
+
+/* #endregion FOOTER*/
+
+/* #region MODAL */
+
+.modalHead {
+    display: flex;
+    justify-content: center;
+}
+
+.modalBody>div {
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boxInfoLabel {
+    font-size: 20px;
+    color: #7dd181;
+}
+
+.boxInfoImg {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    border: 2px solid #2D6A4F;
+}
+
+/* #endregion MODAL*/
