@@ -107,7 +107,7 @@ const stars = [
 
 const boxCardGrid = document.getElementById("boxCardGrid"),
   scrollBarBoxCardGrid = document.getElementById("scrollBarBoxCardGrid"),
-  btnbntGenerateUser = document.getElementById("bntGenerateUser"),
+  bntGenerateUser = document.getElementById("bntGenerateUser"),
   lstlstGender = document.getElementById("lstlstGender"),
   boxCheckboxGrid = document.getElementById("boxCheckboxGrid"),
   textRicercaFlag = document.getElementById("textRicercaFlag"),
@@ -119,11 +119,7 @@ const boxCardGrid = document.getElementById("boxCardGrid"),
 //#region Eventi Associati ad Elementi del DOM statici
 
 $(document).on("click", ".cardInner", function () {
-  if (
-    !boolNavPersonButtonClicked &&
-    !boolStarClicked &&
-    !boolInfoButtonClicked
-  ) {
+  if (!boolNavPersonButtonClicked && !boolInfoButtonClicked) {
     $(this).toggleClass("flipped");
   }
   boolNavPersonButtonClicked = false;
@@ -132,10 +128,13 @@ $(document).on("click", ".cardInner", function () {
 });
 
 $(document).on("click", ".checkboxFlag", function () {
+  let NAT = $(this).attr("NAT")
   if (this.checked) {
-    params.nat += `${$(this).attr("NAT")},`;
+    params.nat += `${NAT},`;
   } else {
-    params.nat = "";
+    params.nat = params.nat.split(",").filter(function (nat) {
+      return nat != `${NAT}`
+    }).toString();
   }
   console.log(params);
 });
@@ -167,15 +166,14 @@ $("#inputRangeUser").on("change", function () {
   console.log(params);
 });
 
-btnbntGenerateUser.addEventListener("click", function () {
+bntGenerateUser.addEventListener("click", function () {
   loadCard(params);
 });
 
 lstlstGender.addEventListener("change", function () {
-  params.lstGender = this.value;
+  params.gender = this.value;
   console.log(params);
 });
-
 
 //#endregion
 
@@ -193,7 +191,7 @@ scrollBarBoxCardGrid.style.display = "none";
 loadCheckbox(params.nat);
 
 async function loadCard(params) {
-  indexUser = 0
+  indexUser = 0;
   scrollBarBoxCardGrid.style.width = "0%";
   boxCardGrid.innerHTML = "";
   let HTTPResponse = await loadData("https://randomuser.me", "./api", params);
@@ -236,7 +234,6 @@ function createCardFront(person) {
         .addClass("star")
         .html(stars[0])
         .click(function () {
-          boolStarClicked = true;
           $(this).html($(this).html() == stars[0] ? stars[1] : stars[0]);
         })
     );
@@ -256,7 +253,7 @@ function createCardBack(person) {
     person.login.username,
     person.login.password,
     person.email,
-    person.lstGender,
+    person.gender,
     `${person.dob.age} years (${person.dob.date.split("T")[0]})`,
     `${person.location.country} (${person.nat})`,
     person.location.state,
@@ -305,7 +302,9 @@ function createCardBack(person) {
           $(`#textPersonGeneral${$(this).attr("index")}`).text(
             `${$(this).attr("textDisplay")}`
           );
-          $(`#textPersonValue${$(this).attr("index")}`).text(`${$(this).val()}`);
+          $(`#textPersonValue${$(this).attr("index")}`).text(
+            `${$(this).val()}`
+          );
         })
         .click(function () {
           boolNavPersonButtonClicked = true;
@@ -318,7 +317,7 @@ function createCardBack(person) {
         })
     );
   });
-  indexUser++
+  indexUser++;
   return $("<div/>")
     .addClass("cardBack")
     .append(divTextPerson, divNavigatePerson, imgBack, infoButton);
