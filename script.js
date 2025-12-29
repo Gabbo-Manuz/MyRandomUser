@@ -69,248 +69,36 @@ const navPerson = [
 ];
 
 const bandiere = [
-  { nome: "Afghanistan", nat: "AF", flag: "https://flagcdn.com/w80/af.png" },
-  { nome: "Albania", nat: "AL", flag: "https://flagcdn.com/w80/al.png" },
-  { nome: "Algeria", nat: "DZ", flag: "https://flagcdn.com/w80/dz.png" },
-  { nome: "Andorra", nat: "AD", flag: "https://flagcdn.com/w80/ad.png" },
-  { nome: "Angola", nat: "AO", flag: "https://flagcdn.com/w80/ao.png" },
-  {
-    nome: "Antigua e Barbuda",
-    nat: "AG",
-    flag: "https://flagcdn.com/w80/ag.png",
-  },
-  { nome: "Arabia Saudita", nat: "SA", flag: "https://flagcdn.com/w80/sa.png" },
-  { nome: "Argentina", nat: "AR", flag: "https://flagcdn.com/w80/ar.png" },
-  { nome: "Armenia", nat: "AM", flag: "https://flagcdn.com/w80/am.png" },
   { nome: "Australia", nat: "AU", flag: "https://flagcdn.com/w80/au.png" },
-  { nome: "Austria", nat: "AT", flag: "https://flagcdn.com/w80/at.png" },
-  { nome: "Azerbaigian", nat: "AZ", flag: "https://flagcdn.com/w80/az.png" },
-  { nome: "Bahamas", nat: "BS", flag: "https://flagcdn.com/w80/bs.png" },
-  { nome: "Bahrein", nat: "BH", flag: "https://flagcdn.com/w80/bh.png" },
-  { nome: "Bangladesh", nat: "BD", flag: "https://flagcdn.com/w80/bd.png" },
-  { nome: "Barbados", nat: "BB", flag: "https://flagcdn.com/w80/bb.png" },
-  { nome: "Belgio", nat: "BE", flag: "https://flagcdn.com/w80/be.png" },
-  { nome: "Belize", nat: "BZ", flag: "https://flagcdn.com/w80/bz.png" },
-  { nome: "Benin", nat: "BJ", flag: "https://flagcdn.com/w80/bj.png" },
-  { nome: "Bhutan", nat: "BT", flag: "https://flagcdn.com/w80/bt.png" },
-  { nome: "Bielorussia", nat: "BY", flag: "https://flagcdn.com/w80/by.png" },
-  { nome: "Bolivia", nat: "BO", flag: "https://flagcdn.com/w80/bo.png" },
-  {
-    nome: "Bosnia ed Erzegovina",
-    nat: "BA",
-    flag: "https://flagcdn.com/w80/ba.png",
-  },
-  { nome: "Botswana", nat: "BW", flag: "https://flagcdn.com/w80/bw.png" },
   { nome: "Brasile", nat: "BR", flag: "https://flagcdn.com/w80/br.png" },
-  { nome: "Brunei", nat: "BN", flag: "https://flagcdn.com/w80/bn.png" },
-  { nome: "Bulgaria", nat: "BG", flag: "https://flagcdn.com/w80/bg.png" },
-  { nome: "Burkina Faso", nat: "BF", flag: "https://flagcdn.com/w80/bf.png" },
-  { nome: "Burundi", nat: "BI", flag: "https://flagcdn.com/w80/bi.png" },
-  { nome: "Cambogia", nat: "KH", flag: "https://flagcdn.com/w80/kh.png" },
-  { nome: "Camerun", nat: "CM", flag: "https://flagcdn.com/w80/cm.png" },
   { nome: "Canada", nat: "CA", flag: "https://flagcdn.com/w80/ca.png" },
-  { nome: "Capo Verde", nat: "CV", flag: "https://flagcdn.com/w80/cv.png" },
-  { nome: "Ciad", nat: "TD", flag: "https://flagcdn.com/w80/td.png" },
-  { nome: "Cile", nat: "CL", flag: "https://flagcdn.com/w80/cl.png" },
-  { nome: "Cina", nat: "CN", flag: "https://flagcdn.com/w80/cn.png" },
-  { nome: "Cipro", nat: "CY", flag: "https://flagcdn.com/w80/cy.png" },
-  {
-    nome: "Città del Vaticano",
-    nat: "VA",
-    flag: "https://flagcdn.com/w80/va.png",
-  },
-  { nome: "Colombia", nat: "CO", flag: "https://flagcdn.com/w80/co.png" },
-  { nome: "Comore", nat: "KM", flag: "https://flagcdn.com/w80/km.png" },
-  { nome: "Corea del Nord", nat: "KP", flag: "https://flagcdn.com/w80/kp.png" },
-  { nome: "Corea del Sud", nat: "KR", flag: "https://flagcdn.com/w80/kr.png" },
-  { nome: "Costa d'Avorio", nat: "CI", flag: "https://flagcdn.com/w80/ci.png" },
-  { nome: "Costa Rica", nat: "CR", flag: "https://flagcdn.com/w80/cr.png" },
-  { nome: "Croazia", nat: "HR", flag: "https://flagcdn.com/w80/hr.png" },
-  { nome: "Cuba", nat: "CU", flag: "https://flagcdn.com/w80/cu.png" },
+  { nome: "Svizzera", nat: "CH", flag: "https://flagcdn.com/w80/ch.png" },
+  { nome: "Germania", nat: "DE", flag: "https://flagcdn.com/w80/de.png" },
   { nome: "Danimarca", nat: "DK", flag: "https://flagcdn.com/w80/dk.png" },
-  { nome: "Dominica", nat: "DM", flag: "https://flagcdn.com/w80/dm.png" },
-  { nome: "Ecuador", nat: "EC", flag: "https://flagcdn.com/w80/ec.png" },
-  { nome: "Egitto", nat: "EG", flag: "https://flagcdn.com/w80/eg.png" },
-  { nome: "El Salvador", nat: "SV", flag: "https://flagcdn.com/w80/sv.png" },
-  {
-    nome: "Emirati Arabi Uniti",
-    nat: "AE",
-    flag: "https://flagcdn.com/w80/ae.png",
-  },
-  { nome: "Eritrea", nat: "ER", flag: "https://flagcdn.com/w80/er.png" },
-  { nome: "Estonia", nat: "EE", flag: "https://flagcdn.com/w80/ee.png" },
-  { nome: "Etiopia", nat: "ET", flag: "https://flagcdn.com/w80/et.png" },
-  { nome: "Fiji", nat: "FJ", flag: "https://flagcdn.com/w80/fj.png" },
-  { nome: "Filippine", nat: "PH", flag: "https://flagcdn.com/w80/ph.png" },
+  { nome: "Spagna", nat: "ES", flag: "https://flagcdn.com/w80/es.png" },
   { nome: "Finlandia", nat: "FI", flag: "https://flagcdn.com/w80/fi.png" },
   { nome: "Francia", nat: "FR", flag: "https://flagcdn.com/w80/fr.png" },
-  { nome: "Gabon", nat: "GA", flag: "https://flagcdn.com/w80/ga.png" },
-  { nome: "Gambia", nat: "GM", flag: "https://flagcdn.com/w80/gm.png" },
-  { nome: "Georgia", nat: "GE", flag: "https://flagcdn.com/w80/ge.png" },
-  { nome: "Germania", nat: "DE", flag: "https://flagcdn.com/w80/de.png" },
-  { nome: "Ghana", nat: "GH", flag: "https://flagcdn.com/w80/gh.png" },
-  { nome: "Giamaica", nat: "JM", flag: "https://flagcdn.com/w80/jm.png" },
-  { nome: "Giappone", nat: "JP", flag: "https://flagcdn.com/w80/jp.png" },
-  { nome: "Gibuti", nat: "DJ", flag: "https://flagcdn.com/w80/dj.png" },
-  { nome: "Giordania", nat: "JO", flag: "https://flagcdn.com/w80/jo.png" },
-  { nome: "Grecia", nat: "GR", flag: "https://flagcdn.com/w80/gr.png" },
-  { nome: "Grenada", nat: "GD", flag: "https://flagcdn.com/w80/gd.png" },
-  { nome: "Guatemala", nat: "GT", flag: "https://flagcdn.com/w80/gt.png" },
-  { nome: "Guinea", nat: "GN", flag: "https://flagcdn.com/w80/gn.png" },
-  {
-    nome: "Guinea Equatoriale",
-    nat: "GQ",
-    flag: "https://flagcdn.com/w80/gq.png",
-  },
-  { nome: "Guinea-Bissau", nat: "GW", flag: "https://flagcdn.com/w80/gw.png" },
-  { nome: "Guyana", nat: "GY", flag: "https://flagcdn.com/w80/gy.png" },
-  { nome: "Haiti", nat: "HT", flag: "https://flagcdn.com/w80/ht.png" },
-  { nome: "Honduras", nat: "HN", flag: "https://flagcdn.com/w80/hn.png" },
-  { nome: "India", nat: "IN", flag: "https://flagcdn.com/w80/in.png" },
-  { nome: "Indonesia", nat: "ID", flag: "https://flagcdn.com/w80/id.png" },
-  { nome: "Iran", nat: "IR", flag: "https://flagcdn.com/w80/ir.png" },
-  { nome: "Iraq", nat: "IQ", flag: "https://flagcdn.com/w80/iq.png" },
+  { nome: "Regno Unito", nat: "GB", flag: "https://flagcdn.com/w80/gb.png" },
   { nome: "Irlanda", nat: "IE", flag: "https://flagcdn.com/w80/ie.png" },
-  { nome: "Islanda", nat: "IS", flag: "https://flagcdn.com/w80/is.png" },
-  { nome: "Isreale", nat: "IL", flag: "https://flagcdn.com/w80/il.png" },
-  { nome: "Italia", nat: "IT", flag: "https://flagcdn.com/w80/it.png" },
-  { nome: "Kazakistan", nat: "KZ", flag: "https://flagcdn.com/w80/kz.png" },
-  { nome: "Kenya", nat: "KE", flag: "https://flagcdn.com/w80/ke.png" },
-  { nome: "Kirghizistan", nat: "KG", flag: "https://flagcdn.com/w80/kg.png" },
-  { nome: "Kiribati", nat: "KI", flag: "https://flagcdn.com/w80/ki.png" },
-  { nome: "Kuwait", nat: "KW", flag: "https://flagcdn.com/w80/kw.png" },
-  { nome: "Laos", nat: "LA", flag: "https://flagcdn.com/w80/la.png" },
-  { nome: "Lesotho", nat: "LS", flag: "https://flagcdn.com/w80/ls.png" },
-  { nome: "Lettonia", nat: "LV", flag: "https://flagcdn.com/w80/lv.png" },
-  { nome: "Libano", nat: "LB", flag: "https://flagcdn.com/w80/lb.png" },
-  { nome: "Liberia", nat: "LR", flag: "https://flagcdn.com/w80/lr.png" },
-  { nome: "Libia", nat: "LY", flag: "https://flagcdn.com/w80/ly.png" },
-  { nome: "Liechtenstein", nat: "LI", flag: "https://flagcdn.com/w80/li.png" },
-  { nome: "Lituania", nat: "LT", flag: "https://flagcdn.com/w80/lt.png" },
-  { nome: "Lussemburgo", nat: "LU", flag: "https://flagcdn.com/w80/lu.png" },
-  {
-    nome: "Macedonia del Nord",
-    nat: "MK",
-    flag: "https://flagcdn.com/w80/mk.png",
-  },
-  { nome: "Madagascar", nat: "MG", flag: "https://flagcdn.com/w80/mg.png" },
-  { nome: "Malawi", nat: "MW", flag: "https://flagcdn.com/w80/mw.png" },
-  { nome: "Malesia", nat: "MY", flag: "https://flagcdn.com/w80/my.png" },
-  { nome: "Maldive", nat: "MV", flag: "https://flagcdn.com/w80/mv.png" },
-  { nome: "Mali", nat: "ML", flag: "https://flagcdn.com/w80/ml.png" },
-  { nome: "Malta", nat: "MT", flag: "https://flagcdn.com/w80/mt.png" },
-  { nome: "Marocco", nat: "MA", flag: "https://flagcdn.com/w80/ma.png" },
-  { nome: "Mauritania", nat: "MR", flag: "https://flagcdn.com/w80/mr.png" },
-  { nome: "Mauritius", nat: "MU", flag: "https://flagcdn.com/w80/mu.png" },
+  { nome: "India", nat: "IN", flag: "https://flagcdn.com/w80/in.png" },
+  { nome: "Iran", nat: "IR", flag: "https://flagcdn.com/w80/ir.png" },
   { nome: "Messico", nat: "MX", flag: "https://flagcdn.com/w80/mx.png" },
-  { nome: "Moldavia", nat: "MD", flag: "https://flagcdn.com/w80/md.png" },
-  { nome: "Monaco", nat: "MC", flag: "https://flagcdn.com/w80/mc.png" },
-  { nome: "Mongolia", nat: "MN", flag: "https://flagcdn.com/w80/mn.png" },
-  { nome: "Montenegro", nat: "ME", flag: "https://flagcdn.com/w80/me.png" },
-  { nome: "Mozambico", nat: "MZ", flag: "https://flagcdn.com/w80/mz.png" },
-  { nome: "Namibia", nat: "NA", flag: "https://flagcdn.com/w80/na.png" },
-  { nome: "Nauru", nat: "NR", flag: "https://flagcdn.com/w80/nr.png" },
-  { nome: "Nepal", nat: "NP", flag: "https://flagcdn.com/w80/np.png" },
-  { nome: "Nicaragua", nat: "NI", flag: "https://flagcdn.com/w80/ni.png" },
-  { nome: "Niger", nat: "NE", flag: "https://flagcdn.com/w80/ne.png" },
-  { nome: "Nigeria", nat: "NG", flag: "https://flagcdn.com/w80/ng.png" },
+  { nome: "Paesi Bassi", nat: "NL", flag: "https://flagcdn.com/w80/nl.png" },
   { nome: "Norvegia", nat: "NO", flag: "https://flagcdn.com/w80/no.png" },
   { nome: "Nuova Zelanda", nat: "NZ", flag: "https://flagcdn.com/w80/nz.png" },
-  { nome: "Oman", nat: "OM", flag: "https://flagcdn.com/w80/om.png" },
-  { nome: "Paesi Bassi", nat: "NL", flag: "https://flagcdn.com/w80/nl.png" },
-  { nome: "Pakistan", nat: "PK", flag: "https://flagcdn.com/w80/pk.png" },
-  { nome: "Palau", nat: "PW", flag: "https://flagcdn.com/w80/pw.png" },
-  { nome: "Panama", nat: "PA", flag: "https://flagcdn.com/w80/pa.png" },
-  {
-    nome: "Papua Nuova Guinea",
-    nat: "PG",
-    flag: "https://flagcdn.com/w80/pg.png",
-  },
-  { nome: "Paraguay", nat: "PY", flag: "https://flagcdn.com/w80/py.png" },
-  { nome: "Perù", nat: "PE", flag: "https://flagcdn.com/w80/pe.png" },
-  { nome: "Polonia", nat: "PL", flag: "https://flagcdn.com/w80/pl.png" },
-  { nome: "Portogallo", nat: "PT", flag: "https://flagcdn.com/w80/pt.png" },
-  { nome: "Qatar", nat: "QA", flag: "https://flagcdn.com/w80/qa.png" },
-  { nome: "Regno Unito", nat: "GB", flag: "https://flagcdn.com/w80/gb.png" },
-  {
-    nome: "Repubblica Ceca",
-    nat: "CZ",
-    flag: "https://flagcdn.com/w80/cz.png",
-  },
-  {
-    nome: "Repubblica Centrafricana",
-    nat: "CF",
-    flag: "https://flagcdn.com/w80/cf.png",
-  },
-  {
-    nome: "Repubblica del Congo",
-    nat: "CG",
-    flag: "https://flagcdn.com/w80/cg.png",
-  },
-  {
-    nome: "Repubblica Dominicana",
-    nat: "DO",
-    flag: "https://flagcdn.com/w80/do.png",
-  },
-  { nome: "Romania", nat: "RO", flag: "https://flagcdn.com/w80/ro.png" },
-  { nome: "Russia", nat: "RU", flag: "https://flagcdn.com/w80/ru.png" },
-  { nome: "Ruanda", nat: "RW", flag: "https://flagcdn.com/w80/rw.png" },
-  {
-    nome: "Saint Kitts e Nevis",
-    nat: "KN",
-    flag: "https://flagcdn.com/w80/kn.png",
-  },
-  { nome: "Saint Lucia", nat: "LC", flag: "https://flagcdn.com/w80/lc.png" },
-  {
-    nome: "Saint Vincent e Grenadine",
-    nat: "VC",
-    flag: "https://flagcdn.com/w80/vc.png",
-  },
-  { nome: "Samoa", nat: "WS", flag: "https://flagcdn.com/w80/ws.png" },
-  { nome: "San Marino", nat: "SM", flag: "https://flagcdn.com/w80/sm.png" },
-  { nome: "Senegal", nat: "SN", flag: "https://flagcdn.com/w80/sn.png" },
   { nome: "Serbia", nat: "RS", flag: "https://flagcdn.com/w80/rs.png" },
-  { nome: "Seychelles", nat: "SC", flag: "https://flagcdn.com/w80/sc.png" },
-  { nome: "Sierra Leone", nat: "SL", flag: "https://flagcdn.com/w80/sl.png" },
-  { nome: "Singapore", nat: "SG", flag: "https://flagcdn.com/w80/sg.png" },
-  { nome: "Siria", nat: "SY", flag: "https://flagcdn.com/w80/sy.png" },
-  { nome: "Slovacchia", nat: "SK", flag: "https://flagcdn.com/w80/sk.png" },
-  { nome: "Slovenia", nat: "SI", flag: "https://flagcdn.com/w80/si.png" },
-  { nome: "Somalia", nat: "SO", flag: "https://flagcdn.com/w80/so.png" },
-  { nome: "Spagna", nat: "ES", flag: "https://flagcdn.com/w80/es.png" },
-  { nome: "Sri Lanka", nat: "LK", flag: "https://flagcdn.com/w80/lk.png" },
-  { nome: "Stati Uniti", nat: "US", flag: "https://flagcdn.com/w80/us.png" },
-  { nome: "Sudafrica", nat: "ZA", flag: "https://flagcdn.com/w80/za.png" },
-  { nome: "Sudan", nat: "SD", flag: "https://flagcdn.com/w80/sd.png" },
-  { nome: "Sudan del Sud", nat: "SS", flag: "https://flagcdn.com/w80/ss.png" },
-  { nome: "Svezia", nat: "SE", flag: "https://flagcdn.com/w80/se.png" },
-  { nome: "Svizzera", nat: "CH", flag: "https://flagcdn.com/w80/ch.png" },
-  { nome: "Suriname", nat: "SR", flag: "https://flagcdn.com/w80/sr.png" },
-  { nome: "Taiwan", nat: "TW", flag: "https://flagcdn.com/w80/tw.png" },
-  { nome: "Tagikistan", nat: "TJ", flag: "https://flagcdn.com/w80/tj.png" },
-  { nome: "Tanzania", nat: "TZ", flag: "https://flagcdn.com/w80/tz.png" },
-  { nome: "Thailandia", nat: "TH", flag: "https://flagcdn.com/w80/th.png" },
-  { nome: "Togo", nat: "TG", flag: "https://flagcdn.com/w80/tg.png" },
-  { nome: "Tonga", nat: "TO", flag: "https://flagcdn.com/w80/to.png" },
-  {
-    nome: "Trinidad e Tobago",
-    nat: "TT",
-    flag: "https://flagcdn.com/w80/tt.png",
-  },
-  { nome: "Tunisia", nat: "TN", flag: "https://flagcdn.com/w80/tn.png" },
   { nome: "Turchia", nat: "TR", flag: "https://flagcdn.com/w80/tr.png" },
-  { nome: "Turkmenistan", nat: "TM", flag: "https://flagcdn.com/w80/tm.png" },
   { nome: "Ucraina", nat: "UA", flag: "https://flagcdn.com/w80/ua.png" },
-  { nome: "Uganda", nat: "UG", flag: "https://flagcdn.com/w80/ug.png" },
-  { nome: "Ungheria", nat: "HU", flag: "https://flagcdn.com/w80/hu.png" },
-  { nome: "Uruguay", nat: "UY", flag: "https://flagcdn.com/w80/uy.png" },
-  { nome: "Uzbekistan", nat: "UZ", flag: "https://flagcdn.com/w80/uz.png" },
-  { nome: "Vanuatu", nat: "VU", flag: "https://flagcdn.com/w80/vu.png" },
-  { nome: "Venezuela", nat: "VE", flag: "https://flagcdn.com/w80/ve.png" },
-  { nome: "Vietnam", nat: "VN", flag: "https://flagcdn.com/w80/vn.png" },
-  { nome: "Yemen", nat: "YE", flag: "https://flagcdn.com/w80/ye.png" },
-  { nome: "Zambia", nat: "ZM", flag: "https://flagcdn.com/w80/zm.png" },
-  { nome: "Zimbabwe", nat: "ZW", flag: "https://flagcdn.com/w80/zw.png" },
+  { nome: "Stati Uniti", nat: "US", flag: "https://flagcdn.com/w80/us.png" },
+];
+
+const stars = [
+  `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>`,
+  `<svg width="30" height="30" viewBox="0 0 24 24" fill="#FFD700" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+</svg>`,
 ];
 
 //#endregion
@@ -329,15 +117,16 @@ const boxCardScrol = document.getElementById("boxCardScrol"),
 //#region Eventi Associati ad Elementi del DOM statici
 
 $(document).on("click", ".cardInner", function () {
-  if (!boolNavPersonButtonClicked) {
+  if (!boolNavPersonButtonClicked || !boolStarClicked) {
     $(this).toggleClass("flipped");
   }
   boolNavPersonButtonClicked = false;
+  boolStarClicked = false;
 });
 
 $(document).on("click", ".checkboxFlag", function () {
   if (this.checked) {
-    params.nat = $(this).attr("NAT");
+    params.nat += `${$(this).attr("NAT")},`;
   } else {
     params.nat = "";
   }
@@ -382,18 +171,21 @@ lstGender.addEventListener("change", function () {
 
 textRicercaFlag.addEventListener("input", function () {
   nation = this.value;
-  loadCheckbox(nation)
+  loadCheckbox(nation);
 });
 
 //#endregion
 
-let params = {},
+let params = {
+    nat: "",
+  },
   boolNavPersonButtonClicked = false,
+  boolStarClicked = false,
   nation = "";
 
 barraProgressioneCard.style.display = "none";
 
-loadCheckbox(nation);
+loadCheckbox(params.nat);
 
 async function loadCard(params) {
   barraProgressioneCard.style.width = "0%";
@@ -406,6 +198,7 @@ async function loadCard(params) {
     barraProgressioneCard.style.display = "";
   }
   HTTPResponse.data.results.forEach(function (person, i) {
+    console.log(person.nat);
     $("#boxCardScrol").append(
       $("<div/>")
         .addClass("card")
@@ -432,7 +225,14 @@ function createCardFront(person) {
           $("<div/>").text(`${person.name.first}`),
           $("<div/>").text(`${person.name.last}`)
         )
-        .css({ marginRight: "70px" })
+        .css({ marginRight: "70px" }),
+      $("<div/>")
+        .addClass("star")
+        .html(stars[0])
+        .click(function () {
+          boolStarClicked = true;
+          $(this).html($(this).html() == stars[0] ? stars[1] : stars[0]);
+        })
     );
 }
 
@@ -453,7 +253,12 @@ function createCardBack(person) {
   let imgBack = $("<div/>")
     .addClass("imgBack")
     .css({ backgroundImage: `url(${person.picture.thumbnail})` });
-  let divTextPerson = $("<div/>").addClass("textPerson").text("...");
+  let divTextPerson = $("<div/>")
+    .addClass("textPerson")
+    .append(
+      $("<div/>").addClass("textPersonGeneral").text("..."),
+      $("<div/>").addClass("textPersonValue")
+    );
   let divNavigatePerson = $("<div/>").addClass("navigatePerson");
   navPerson.forEach(function (jsonCard, i) {
     divNavigatePerson.append(
@@ -463,11 +268,13 @@ function createCardBack(person) {
         .attr("textDisplay", jsonCard.text)
         .html(jsonCard.svg)
         .hover(function () {
-          divTextPerson.text(`${$(this).attr("textDisplay")}${$(this).val()}`);
+          $(".textPersonGeneral").text(`${$(this).attr("textDisplay")}`);
+          $(".textPersonValue").text(`${$(this).val()}`);
         })
         .click(function () {
           boolNavPersonButtonClicked = true;
-          divTextPerson.text(`${$(this).attr("textDisplay")}${$(this).val()}`);
+          $(".textPersonGeneral").text(`${$(this).attr("textDisplay")}`);
+          $(".textPersonValue").text(`${$(this).val()}`);
         })
     );
   });
@@ -481,9 +288,12 @@ async function loadData(URLSito, url, params) {
 }
 
 function loadCheckbox(nation) {
-  boxCheckbox.innerHTML = ""
+  boxCheckbox.innerHTML = "";
   bandiere.forEach(function (bandiera, i) {
-    if (bandiera.nome.toUpperCase().startsWith(nation.toUpperCase()) || nation == "") {
+    if (
+      bandiera.nome.toUpperCase().startsWith(nation.toUpperCase()) ||
+      nation == ""
+    ) {
       $(boxCheckbox).append(createBoxCheck(bandiera));
     }
   });
@@ -499,3 +309,4 @@ function createBoxCheck(bandiera) {
     .attr("NAT", bandiera.nat);
   return $("<div/>").addClass("boxCheckbox").append(imgBandiera, checkbox);
 }
+

@@ -31,12 +31,34 @@ header {
 /* MAIN */
 
 main {
-    width: 100%;
     height: 774px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#navBarDisplayCard{
+    width: 1258px;
+    height: 50px;
+    border-radius: 20px;
+    border: 2px #1B4332 solid;
+}
+
+#containerDisplayCard {
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: center;
+}
+
+.star{
+    position: fixed;
+    margin-top: 4px;
+    margin-right: 4px;
+    top: 0px;
+    right: 0px ;
 }
 
 #boxCustomizeUser {
@@ -178,7 +200,7 @@ main {
 }
 
 .card {
-    width: 400px;
+    width: 370px;
     height: 180px;
     perspective: 1000px;
     margin: 10px 5px;
@@ -201,7 +223,7 @@ main {
 
 .card:hover .cardInner:not(.flipped) {
     cursor: pointer;
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .cardFront,
@@ -243,7 +265,19 @@ main {
     width: 100%;
     height: 120px;
     text-align: center;
-    line-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textPersonGeneral {
+    margin-top: 25px;
+}
+
+.textPersonValue {
+    font-weight: bolder;
+    font-size: 19px;
 }
 
 .imgBack {
