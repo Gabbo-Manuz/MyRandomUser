@@ -108,7 +108,7 @@ const stars = [
 const boxCardGrid = document.getElementById("boxCardGrid"),
   scrollBarBoxCardGrid = document.getElementById("scrollBarBoxCardGrid"),
   bntGenerateUser = document.getElementById("bntGenerateUser"),
-  lstlstGender = document.getElementById("lstlstGender"),
+  lstGender = document.getElementById("lstlstGender"),
   boxCheckboxGrid = document.getElementById("boxCheckboxGrid"),
   textRicercaFlag = document.getElementById("textRicercaFlag"),
   boxInfoValues = document.getElementsByClassName("boxInfoValue"),
@@ -118,7 +118,12 @@ const boxCardGrid = document.getElementById("boxCardGrid"),
   btnStars = document.getElementById("btnStars"),
   btnChronology = document.getElementById("btnChronology"),
   btnModalCustomize = document.getElementById("btnModalCustomize"),
-  boxChronology = document.getElementById("boxChronology");
+  lstGenderModal = document.getElementById("lstlstGenderModal"),
+  boxCheckboxGridModal = document.getElementById("boxCheckboxGridModal"),
+  bntGenerateUserModal = document.getElementById("bntGenerateUserModal"),
+  boxChronology = document.getElementById("boxChronology"),
+  boxChronologyModal = document.getElementById("boxChronologyModal"),
+  btnChronologyModal = document.getElementById("btnModalChronology");
 
 //#endregion
 
@@ -175,11 +180,39 @@ $("#inputRangeUser").on("change", function () {
   console.log(params);
 });
 
+$("#inputNumberUserModal").on("change", function () {
+  if ($(this).val() <= 0 || $(this).val() == "") {
+    $(this).val(1);
+  } else if ($(this).val() > 5000) {
+    $(this).val(5000);
+  }
+  $("#labelNumberUserModal").text(`N° User: ${$(this).val()}`);
+  $("#inputRangeUserModal").val($(this).val());
+  params.results = $(this).val();
+  console.log(params);
+});
+
+$("#inputRangeUserModal").on("change", function () {
+  $("#inputNumberUserModal").val($(this).val());
+  $("#labelNumberUserModal").text(`N° User: ${$(this).val()}`);
+  params.results = $(this).val();
+  console.log(params);
+});
+
 bntGenerateUser.addEventListener("click", function () {
   loadCard(params);
 });
 
-lstlstGender.addEventListener("change", function () {
+bntGenerateUserModal.addEventListener("click", function () {
+  loadCard(params);
+});
+
+lstGender.addEventListener("change", function () {
+  params.gender = this.value;
+  console.log(params);
+});
+
+lstGenderModal.addEventListener("change", function () {
   params.gender = this.value;
   console.log(params);
 });
@@ -189,6 +222,7 @@ btnCustomize.addEventListener("click", function () {
   boolFavoritesClicked = false;
   boxCustomizeUser.style.display = "";
   boxChronology.style.display = "";
+  boxCustomizeUser.classList.add("d-md-flex");
   deleteBoxCustomizeElement("");
   boxChronology.style.display = "none";
 });
@@ -196,13 +230,16 @@ btnCustomize.addEventListener("click", function () {
 btnStars.addEventListener("click", function () {
   boxCardGrid.innerHTML = "";
   boolFavoritesClicked = true;
-  boxChronology.style.display = "";
+  boxChronology.style.display = "none";
+  boxCustomizeUser.classList.remove("d-md-flex");
   boxCustomizeUser.style.display = "none";
   loadFavorites(JSON.parse(localStorage.getItem("favorites")));
 });
 
 btnChronology.addEventListener("click", function () {
   boxChronology.style.display = "";
+  boolFavoritesClicked = false;
+  boxCustomizeUser.classList.add("d-md-flex");
   if (!JSON.parse(localStorage.getItem("chronology"))) {
     alert("Non è ancora presente una cronologia");
   } else {
@@ -216,7 +253,22 @@ btnChronology.addEventListener("click", function () {
   }
 });
 
-
+btnChronologyModal.addEventListener("click", function () {
+  boolFavoritesClicked = false;
+  boxChronologyModal.style.display = "";
+  boxCustomizeUser.classList.add("d-md-flex");
+  if (!JSON.parse(localStorage.getItem("chronology"))) {
+    alert("Non è ancora presente una cronologia");
+  } else {
+    boxCardGrid.innerHTML = "";
+    boxChronologyModal.innerHTML = "";
+    boolFavoritesClicked = false;
+    deleteBoxCustomizeElement("none");
+    boxCustomizeUser.style.display = "";
+    boxChronologyModal.style.display = "";
+    loadChronology(JSON.parse(localStorage.getItem("chronology")));
+  }
+});
 
 //#endregion
 
@@ -233,6 +285,10 @@ let params = {
 
 scrollBarBoxCardGrid.style.display = "none";
 boxChronology.style.display = "none";
+
+bntGenerateUserModal.addEventListener("click", function () {
+  boolFavoritesClicked = false;
+});
 
 loadCheckbox(params.nat);
 
@@ -401,6 +457,7 @@ function loadCheckbox(nation) {
       nation == ""
     ) {
       $(boxCheckboxGrid).append(createBoxCheck(bandiera));
+      $(boxCheckboxGridModal).append(createBoxCheck(bandiera));
     }
   });
 }
@@ -470,6 +527,14 @@ function loadChronology(chronology) {
     $(boxChronology).append(
       $("<div/>")
         .text(`Results: ${element.results} Seed: ${element.seed}`)
+        .click(function () {
+          loadCard(element);
+        })
+    );
+    $(boxChronologyModal).append(
+      $("<div/>")
+        .text(`Results: ${element.results} Seed: ${element.seed}`)
+        .attr("data-bs-dismiss", "modal")
         .click(function () {
           loadCard(element);
         })

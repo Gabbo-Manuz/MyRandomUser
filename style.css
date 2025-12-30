@@ -46,7 +46,6 @@ main {
 /* #region NAVBAR CARD */
 
 #navBarCard {
-    width: 420px;
     height: 50px;
     margin: 0px auto;
     margin-bottom: 0px;
@@ -115,6 +114,41 @@ main {
     cursor: pointer;
     transform: scale(1.05);
 }
+
+/*#region Modal*/
+
+#boxChronologyModal {
+    width: 100%;
+    height: 200px;
+    overflow: auto;
+    margin: 5px;
+}
+
+#boxChronologyModal::-webkit-scrollbar{
+    display: none;
+}
+
+#boxChronologyModal > div{
+    font-size: 14px;
+    padding: 0px 5px;
+    margin: 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: #7dd181;
+    border: 1px solid #1B4332;
+    border-radius: 20px;
+    transition: 0.5s transform;
+}
+
+#boxChronologyModal > div:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/*#endregion Modal*/
 
 /* #endregion boxChronology*/
 
@@ -244,6 +278,135 @@ main {
 #btnGenerateUser:hover {
     cursor: pointer;
 }
+
+/*#region Modal Customizer*/
+
+#boxCustomizeUserModal {
+    width: 340px;
+    height: 420px;
+    border: 2px #1B4332 solid;
+    margin: 5px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+#sliderModal,
+#lstGenderModal {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    margin: 10px;
+}
+
+/* #region Slider */
+
+#sliderModal > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sliderModal #inputRangeUserModal,
+#inputNumberUserModal {
+    margin: 5px;
+}
+
+#sliderModal #inputRangeUserModal {
+    width: 200px;
+}
+
+#sliderModal #inputRangeUserModal::-webkit-slider-thumb {
+    background-color: #1B4332;
+}
+
+#sliderModal #inputRangeUserModal::-webkit-slider-runnable-track {
+    background-color: #7dd181;
+}
+
+#sliderModal #inputNumberUserModal {
+    width: 40px;
+    height: 20px;
+    background-color: #7dd181;
+    color: #2D6A4F;
+    text-align: center;
+}
+
+#sliderModal #inputNumberUserModal::-webkit-outer-spin-button,
+#inputNumberUserModal::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* #endregion Slider */
+
+/* #region List */
+
+#lstGenderModal > #lstlstGenderModal {
+    width: 240px;
+    background-color: #7dd181;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* #endregion List */
+
+/* #region CheckBox */
+
+#boxCheckboxGridModal {
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+}
+
+#boxCheckboxGridModal::-webkit-scrollbar {
+    display: none;
+}
+
+.boxCheckboxGrid {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid #1B4332;
+}
+
+.imgBandiera {
+    width: 80px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 5px;
+}
+
+/* #endregion CheckBox */
+
+#bntGenerateUserModal {
+    width: 240px;
+    margin: 10px;
+    background-color: #7dd181;
+    border-radius: 10px;
+}
+
+#bntGenerateUserModal:hover {
+    cursor: pointer;
+}
+
+
+
+/*#endregion Modal Customizer*/
 
 /* #endregion BoxCustomizeUser */
 

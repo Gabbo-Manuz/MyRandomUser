@@ -1,217 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-      rel="stylesheet"
-    />
-    <script src="./JSAxios/axios@1.13.min.js"></script>
-    <script src="./JSAxios/libreria.js"></script>
-    <script defer src="./script.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="./Img/IconaGlobo.png" />
-    <title>Random User</title>
-  </head>
 
-  <body>
-    <header>
-      <div class="text-center">
-        <h1 class="fw-bold">RANDOM USER</h1>
-        <h3>Enjoy discovering people all over the world</h3>
-      </div>
-    </header>    
-    <main class="d-block d-lg-flex">
-      <div id="containerCard">
-        <div id="boxCustomizeUser" class="d-none d-md-flex">
-          <div id="boxChronology">
-            
-          </div>
-          <div id="slider">
-            <label id="labelNumberUser">N° User: 1</label>
-            <div>
-              <input
-                type="range"
-                id="inputRangeUser"
-                value="1"
-                min="1"
-                max="100"
-                class="form-range"
-              />
-              <input
-                id="inputNumberUser"
-                type="number"
-                value="1"
-                min="1"
-                max="5000"
-                class="form-control"
-              />
-            </div>
-          </div>
-          <div id="lstGender">
-            <select id="lstlstGender">
-              <option value="">All</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </div>
-          <div id="boxCheckboxGrid"></div>
-          <button id="bntGenerateUser">Generate Users</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet" />
+  <script src="./JSAxios/axios@1.13.min.js"></script>
+  <script src="./JSAxios/libreria.js"></script>
+  <script defer src="./script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" href="./Img/IconaGlobo.png" />
+  <title>Random User</title>
+</head>
+
+<body>
+  <header>
+    <div class="text-center">
+      <h1 class="fw-bold">RANDOM USER</h1>
+      <h3>Enjoy discovering people all over the world</h3>
+    </div>
+  </header>
+  <main class="d-block d-lg-flex">
+    <div id="containerCard">
+      <div id="boxCustomizeUser" class="d-none d-md-flex">
+        <div id="boxChronology">
+
         </div>
-        <div id="boxCard">
-          <div id="boxCardGrid" class="d-block d-xl-grid"></div>
-          <div id="scrollBarBoxCardGrid"></div>
+        <div id="slider">
+          <label id="labelNumberUser">N° User: 1</label>
+          <div>
+            <input type="range" id="inputRangeUser" value="1" min="1" max="100" class="form-range" />
+            <input id="inputNumberUser" type="number" value="1" min="1" max="5000" class="form-control" />
+          </div>
         </div>
+        <div id="lstGender">
+          <select id="lstlstGender">
+            <option value="">All</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div id="boxCheckboxGrid"></div>
+        <button id="bntGenerateUser">Generate Users</button>
       </div>
-      <div id="navBarCard">
-            <div class="navBarCardElement" id="btnCustomize">Customize</div>
-            <div class="navBarCardElement" id="btnStars">Stars</div>
-            <div class="navBarCardElement" id="btnChronology">Chronology</div>
-            <div class="navBarCardElement d-block d-md-none" style="width: 250px;" data-bs-target="#customizeModal" data-bs-toggle="modal"  id="btnModalCustomize">Customize User</div>
+      <div id="boxCard">
+        <div id="boxCardGrid" class="d-block d-xl-grid"></div>
+        <div id="scrollBarBoxCardGrid"></div>
+      </div>
+    </div>
+    <div id="navBarCard">
+      <div class="navBarCardElement d-block d-md-none" style="width: 250px;" data-bs-target="#customizeModal"
+        data-bs-toggle="modal" id="btnModalCustomize">Customize User</div>
+      <div class="navBarCardElement d-none d-md-block" id="btnCustomize">Customize</div>
+      <div class="navBarCardElement" id="btnStars">Stars</div>
+      <div class="navBarCardElement d-none d-md-block" id="btnChronology">Chronology</div>
+      <div class="navBarCardElement d-block d-md-none" data-bs-target="#chronologyModal"
+        data-bs-toggle="modal" id="btnModalChronology">Chronology</div>
+    </div>
+    </div>
+  </main>
+  <footer>
+    <div>Bringing the world closer, one click at a time. Powered by Gabriele Manunta </div>
+  </footer>
+  <div class="modal fade" id="infoModal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header modalHead">
+          <h1>User Info</h1>
+        </div>
+        <div class="modal-body modalBody">
+          <div class="boxInfoImg"></div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Name:</div>
+            <div class="boxInfoValue"></div>
           </div>
-      </div>        
-    </main>
-    <footer>
-      <div>Contact Me</div>
-    </footer>
-    <div class="modal fade" id="infoModal" data-bs-backdrop="static">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header modalHead">
-            <h1>User Info</h1>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Username:</div>
+            <div class="boxInfoValue"></div>
           </div>
-          <div class="modal-body modalBody">
-            <div class="boxInfoImg"></div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Name:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Username:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Password:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Email:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Gender:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Age (Date Of Birth):</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Country (NAT):</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">State:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">City:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Street:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">PostCode:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Cell:</div>
-              <div class="boxInfoValue"></div>
-            </div>
-            <div class="boxInfo">
-              <div class="boxInfoLabel">Phone:</div>
-              <div class="boxInfoValue"></div>
-            </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Password:</div>
+            <div class="boxInfoValue"></div>
           </div>
-          <div class="modal-footer">
-            <button class="btn btn-danger" data-bs-dismiss="modal">
-              Chiudi User Info
-            </button>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Email:</div>
+            <div class="boxInfoValue"></div>
           </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Gender:</div>
+            <div class="boxInfoValue"></div>
+          </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Age (Date Of Birth):</div>
+            <div class="boxInfoValue"></div>
+          </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Country (NAT):</div>
+            <div class="boxInfoValue"></div>
+          </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">State:</div>
+            <div class="boxInfoValue"></div>
+          </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">City:</div>
+            <div class="boxInfoValue"></div>
+          </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Street:</div>
+            <div class="boxInfoValue"></div>
+          </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">PostCode:</div>
+            <div class="boxInfoValue"></div>
+          </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Cell:</div>
+            <div class="boxInfoValue"></div>
+          </div>
+          <div class="boxInfo">
+            <div class="boxInfoLabel">Phone:</div>
+            <div class="boxInfoValue"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-bs-dismiss="modal">
+            Chiudi User Info
+          </button>
         </div>
       </div>
     </div>
-    <div class="modal fade" id="customizeModal" data-bs-backdrop="static">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header modalHead">
-            <h1>User Info</h1>
-          </div>
-          <div class="modal-body">
-          <div id="boxCustomizeUser">
-          <div id="boxChronology">
-            
-          </div>
-          <div id="slider">
-            <label id="labelNumberUser">N° User: 1</label>
-            <div>
-              <input
-                type="range"
-                id="inputRangeUser"
-                value="1"
-                min="1"
-                max="100"
-                class="form-range"
-              />
-              <input
-                id="inputNumberUser"
-                type="number"
-                value="1"
-                min="1"
-                max="5000"
-                class="form-control"
-              />
-            </div>
-          </div>
-          <div id="lstGender">
-            <select id="lstlstGender">
-              <option value="">All</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </div>
-          <div id="boxCheckboxGrid"></div>
-          <button id="bntGenerateUser">Generate Users</button>
+  </div>
+  <div class="modal fade" id="customizeModal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header modalHead">
+          <h1>Customize Users</h1>
         </div>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-danger" data-bs-dismiss="modal">
-              Chiudi User Info
+        <div class="modal-body"
+          style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <div id="boxCustomizeUserModal">
+            <div id="sliderModal">
+              <label id="labelNumberUserModal">N° User: 1</label>
+              <div>
+                <input type="range" id="inputRangeUserModal" value="1" min="1" max="100" class="form-range" />
+                <input id="inputNumberUserModal" type="number" value="1" min="1" max="5000" class="form-control mt-2" />
+              </div>
+            </div>
+            <div id="lstGenderModal">
+              <select id="lstlstGenderModal">
+                <option value="">All</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div id="boxCheckboxGridModal">
+            </div>
+            <button id="bntGenerateUserModal" data-bs-dismiss="modal">
+              Generate Users
             </button>
           </div>
         </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-bs-dismiss="modal">
+            Close User Customizer
+          </button>
+        </div>
       </div>
     </div>
-  </body>
+  </div>
+  <div class="modal fade" id="chronologyModal" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header modalHead">
+          <h1>User Chronology</h1>
+        </div>
+        <div class="modal-body"
+          style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <div id="boxChronologyModal" >
+          
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-bs-dismiss="modal">
+            Close User Chronology
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
