@@ -23,7 +23,7 @@ Ci sono tre pulsanti principali: Customize, Stars e Chronology.
 
 ##  Responsive
 
-Per permettere la visualizzazione della pagina migliore il riquadro a sinistra viene nascosto e le carte verranno disposte una sotto l'altra. La funzione Stars non riceve alcuna modifica, eccetto le funzioni dei due pulsanti: Customize User e Chronology
+Per visualizzare al meglio la pagina il riquadro a sinistra viene nascosto e le carte verranno disposte una sotto l'altra. La funzione Stars non riceve alcuna modifica, eccetto le funzioni dei due pulsanti: Customize User e Chronology
 
 | Nome | Funzionamento Generale | Dettagli |
 | :--- | :--- | :--- |
