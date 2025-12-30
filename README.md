@@ -1,4 +1,4 @@
-### --- Documentazione MyRandomUser ---
+# Documentazione MyRandomUser
 
 ## Generazione Utenti
 
