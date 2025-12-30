@@ -15,9 +15,9 @@ Ad ogni carta è associato l'evento click che permette di girarla e mostrare alt
 
 Ci sono tre pulsanti principali: Customize, Stars e Chronology.
 
-| Nome | Funzionamento |
-| :--- | :--- |
-| Customize | Mostra l'interfaccia di generazioni degli utenti. Il riquadro a sinistra permette di generare gli utenti selezionando le caratteristiche volute come il numero, genere e nazionalità. Nel riquadro a destra si visualizzeranno tutte le carte generate seguendo uno schema a griglia. Se sono presenti più di 4 carte sarà resa visibile un barra di scroll, posta in basso del riquadro, che permetterà all'utente di capire in che punto si trova nello scroll delle carte. |
+| Nome | Funzionamento Generale | Dettagli |
+| :--- | :--- | :--- |
+| Customize | Mostra l'interfaccia di generazioni degli utenti. | Il riquadro a sinistra permette di generare gli utenti selezionando le caratteristiche volute come il numero, genere e nazionalità. Nel riquadro a destra si visualizzeranno tutte le carte generate seguendo uno schema a griglia. Se sono presenti più di 4 carte sarà resa visibile un barra di scroll, posta in basso del riquadro, che permetterà all'utente di capire in che punto si trova nello scroll delle carte. |
 | Anna | 30 |
 | Luca | 22 | 
 
