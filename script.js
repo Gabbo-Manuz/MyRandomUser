@@ -112,7 +112,12 @@ const boxCardGrid = document.getElementById("boxCardGrid"),
   boxCheckboxGrid = document.getElementById("boxCheckboxGrid"),
   textRicercaFlag = document.getElementById("textRicercaFlag"),
   boxInfoValues = document.getElementsByClassName("boxInfoValue"),
-  boxInfoImg = document.querySelector(".boxInfoImg");
+  boxInfoImg = document.querySelector(".boxInfoImg"),
+  boxCustomizeUser = document.querySelector("#boxCustomizeUser"),
+  btnCustomize = document.getElementById("btnCustomize"),
+  btnStars = document.getElementById("btnStars"),
+  btnChronology = document.getElementById("btnChronology"),
+  boxChronology = document.getElementById("boxChronology");
 
 //#endregion
 
@@ -128,13 +133,16 @@ $(document).on("click", ".cardInner", function () {
 });
 
 $(document).on("click", ".checkboxFlag", function () {
-  let NAT = $(this).attr("NAT")
+  let NAT = $(this).attr("NAT");
   if (this.checked) {
     params.nat += `${NAT},`;
   } else {
-    params.nat = params.nat.split(",").filter(function (nat) {
-      return nat != `${NAT}`
-    }).toString();
+    params.nat = params.nat
+      .split(",")
+      .filter(function (nat) {
+        return nat != `${NAT}`;
+      })
+      .toString();
   }
   console.log(params);
 });
@@ -175,18 +183,53 @@ lstlstGender.addEventListener("change", function () {
   console.log(params);
 });
 
+btnCustomize.addEventListener("click", function () {
+  boxCardGrid.innerHTML = "";
+  boolFavoritesClicked = false;
+  boxCustomizeUser.style.display = "";
+  boxChronology.style.display = "";
+  deleteBoxCustomizeElement("");
+  boxChronology.style.display = "none";
+});
+
+btnStars.addEventListener("click", function () {
+  boxCardGrid.innerHTML = "";
+  boolFavoritesClicked = true;
+  boxChronology.style.display = "";
+  boxCustomizeUser.style.display = "none";
+  loadFavorites(JSON.parse(localStorage.getItem("favorites")));
+});
+
+btnChronology.addEventListener("click", function () {
+  boxChronology.style.display = "";
+  if (!JSON.parse(localStorage.getItem("chronology"))) {
+    alert("Non è ancora presente una cronologia");
+  } else {
+    boxCardGrid.innerHTML = "";
+    boxChronology.innerHTML = "";
+    boolFavoritesClicked = false;
+    deleteBoxCustomizeElement("none");
+    boxCustomizeUser.style.display = "";
+    boxChronology.style.display = "";
+    loadChronology(JSON.parse(localStorage.getItem("chronology")));
+  }
+});
+
 //#endregion
 
 let params = {
     nat: "",
+    gender: "",
   },
   boolNavPersonButtonClicked = false,
   boolStarClicked = false,
   boolInfoButtonClicked = false,
+  boolFavoritesClicked = false,
   nation = "",
   indexUser = 0;
 
 scrollBarBoxCardGrid.style.display = "none";
+boxChronology.style.display = "none";
 
 loadCheckbox(params.nat);
 
@@ -201,8 +244,17 @@ async function loadCard(params) {
   } else {
     scrollBarBoxCardGrid.style.display = "";
   }
+  if (
+    boxChronology.style.display == "none" &&
+    params.nat == "" && 
+    params.gender == ""
+  ) {
+    saveInLocalStorage("chronology", {
+      results: HTTPResponse.data.info.results,
+      seed: HTTPResponse.data.info.seed,
+    });
+  }
   HTTPResponse.data.results.forEach(function (person, i) {
-    console.log(person.nat);
     $("#boxCardGrid").append(
       $("<div/>")
         .addClass("card")
@@ -232,9 +284,20 @@ function createCardFront(person) {
         .css({ marginRight: "70px" }),
       $("<div/>")
         .addClass("star")
-        .html(stars[0])
+        .html(boolFavoritesClicked ? stars[1] : stars[0])
         .click(function () {
-          $(this).html($(this).html() == stars[0] ? stars[1] : stars[0]);
+          if (!boolFavoritesClicked) {
+            if ($(this).html() == stars[0]) {
+              $(this).html(stars[1]);
+              saveInLocalStorage("favorites", person);
+            } else {
+              $(this).html(stars[0]);
+              deleteInLocalStorage("favorites", person);
+            }
+          } else {
+            deleteInLocalStorage("favorites", person);
+            loadFavorites(JSON.parse(localStorage.getItem("favorites")));
+          }
         })
     );
 }
@@ -353,5 +416,60 @@ function createBoxCheck(bandiera) {
 function loadBoxInfoModal(vectInfo) {
   Array.from(boxInfoValues).forEach(function (boxInfoValue, i) {
     boxInfoValue.textContent = vectInfo[i];
+  });
+}
+
+function loadFavorites(people) {
+  indexUser = 0;
+  scrollBarBoxCardGrid.style.width = "0%";
+  boxCardGrid.innerHTML = "";
+  if (people.lenght <= 4) {
+    scrollBarBoxCardGrid.style.display = "none";
+  } else {
+    scrollBarBoxCardGrid.style.display = "";
+  }
+  people.forEach(function (person) {
+    $("#boxCardGrid").append(
+      $("<div/>")
+        .addClass("card")
+        .append(
+          $("<div/>")
+            .addClass("cardInner")
+            .append(createCardFront(person), createCardBack(person))
+        )
+    );
+  });
+}
+
+function saveInLocalStorage(key, person) {
+  let vectJson = JSON.parse(localStorage.getItem(key)) || [];
+  vectJson.push(person);
+  localStorage.setItem(key, JSON.stringify(vectJson));
+}
+
+function deleteInLocalStorage(key, person) {
+  let vectJson = JSON.parse(localStorage.getItem(key));
+  vectJson = vectJson.filter(function (json) {
+    return json.name.first != person.name.first;
+  });
+  localStorage.setItem(key, JSON.stringify(vectJson));
+}
+
+function deleteBoxCustomizeElement(string) {
+  lstGender.style.display = string;
+  boxCheckboxGrid.style.display = string;
+  bntGenerateUser.style.display = string;
+  slider.style.display = string;
+}
+
+function loadChronology(chronology) {
+  chronology.forEach(function (element) {
+    $(boxChronology).append(
+      $("<div/>")
+        .text(`Results: ${element.results} Seed: ${element.seed}`)
+        .click(function () {
+          loadCard(element);
+        })
+    );
   });
 }

@@ -46,10 +46,32 @@ main {
 /* #region NAVBAR CARD */
 
 #navBarCard {
-    width: 1258px;
+    width: 420px;
     height: 50px;
+    margin: 8px;
+    margin-bottom: 0px;
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px #1B4332 solid;
+}
+
+.navBarCardElement {
+    text-align: center;
+    width: 100px;
+    height: 25px;
+    background-color: #7dd181;
+    border: 1px solid #1B4332;
+    border-radius: 10px;
+    margin: 0px 5px;
+    transition: 0.5s transform;
+}
+
+.navBarCardElement:hover {
+    cursor: pointer;
+    background-color: #52B788;
+    transform: scale(1.05);
 }
 
 /* #endregion NAVBAR CARD*/
@@ -62,6 +84,39 @@ main {
     align-items: center;
     justify-content: center;
 }
+
+/* #region boxChronology */
+
+#boxChronology {
+    overflow: auto;
+    margin: 5px;
+}
+
+#boxChronology::-webkit-scrollbar{
+    display: none;
+}
+
+#boxChronology > div{
+    font-size: 14px;
+    padding: 0px 5px;
+    margin: 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background-color: #7dd181;
+    border: 1px solid #1B4332;
+    border-radius: 20px;
+    transition: 0.5s transform;
+}
+
+#boxChronology > div:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/* #endregion boxChronology*/
 
 /* #region BoxCustomizeUser*/
 
@@ -186,12 +241,16 @@ main {
     border-radius: 10px;
 }
 
+#btnGenerateUser:hover {
+    cursor: pointer;
+}
+
 /* #endregion BoxCustomizeUser */
 
 /* #region BoxCard */
 
 #boxCard {
-    width: 900px;
+    width: 790px;
     height: 420px;
     overflow: auto;
     position: relative;
