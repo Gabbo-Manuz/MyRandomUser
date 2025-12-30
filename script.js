@@ -117,6 +117,7 @@ const boxCardGrid = document.getElementById("boxCardGrid"),
   btnCustomize = document.getElementById("btnCustomize"),
   btnStars = document.getElementById("btnStars"),
   btnChronology = document.getElementById("btnChronology"),
+  btnModalCustomize = document.getElementById("btnModalCustomize"),
   boxChronology = document.getElementById("boxChronology");
 
 //#endregion
@@ -215,6 +216,8 @@ btnChronology.addEventListener("click", function () {
   }
 });
 
+
+
 //#endregion
 
 let params = {
@@ -246,7 +249,7 @@ async function loadCard(params) {
   }
   if (
     boxChronology.style.display == "none" &&
-    params.nat == "" && 
+    params.nat == "" &&
     params.gender == ""
   ) {
     saveInLocalStorage("chronology", {

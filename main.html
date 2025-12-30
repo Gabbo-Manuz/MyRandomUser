@@ -39,10 +39,10 @@
         <h1 class="fw-bold">RANDOM USER</h1>
         <h3>Enjoy discovering people all over the world</h3>
       </div>
-    </header>
-    <main>
+    </header>    
+    <main class="d-block d-lg-flex">
       <div id="containerCard">
-        <div id="boxCustomizeUser">
+        <div id="boxCustomizeUser" class="d-none d-md-flex">
           <div id="boxChronology">
             
           </div>
@@ -76,10 +76,9 @@
           </div>
           <div id="boxCheckboxGrid"></div>
           <button id="bntGenerateUser">Generate Users</button>
-       
         </div>
         <div id="boxCard">
-          <div id="boxCardGrid"></div>
+          <div id="boxCardGrid" class="d-block d-xl-grid"></div>
           <div id="scrollBarBoxCardGrid"></div>
         </div>
       </div>
@@ -87,6 +86,7 @@
             <div class="navBarCardElement" id="btnCustomize">Customize</div>
             <div class="navBarCardElement" id="btnStars">Stars</div>
             <div class="navBarCardElement" id="btnChronology">Chronology</div>
+            <div class="navBarCardElement d-block d-md-none" style="width: 250px;" data-bs-target="#customizeModal" data-bs-toggle="modal"  id="btnModalCustomize">Customize User</div>
           </div>
       </div>        
     </main>
@@ -153,6 +153,57 @@
               <div class="boxInfoLabel">Phone:</div>
               <div class="boxInfoValue"></div>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger" data-bs-dismiss="modal">
+              Chiudi User Info
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="customizeModal" data-bs-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header modalHead">
+            <h1>User Info</h1>
+          </div>
+          <div class="modal-body">
+          <div id="boxCustomizeUser">
+          <div id="boxChronology">
+            
+          </div>
+          <div id="slider">
+            <label id="labelNumberUser">N° User: 1</label>
+            <div>
+              <input
+                type="range"
+                id="inputRangeUser"
+                value="1"
+                min="1"
+                max="100"
+                class="form-range"
+              />
+              <input
+                id="inputNumberUser"
+                type="number"
+                value="1"
+                min="1"
+                max="5000"
+                class="form-control"
+              />
+            </div>
+          </div>
+          <div id="lstGender">
+            <select id="lstlstGender">
+              <option value="">All</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div id="boxCheckboxGrid"></div>
+          <button id="bntGenerateUser">Generate Users</button>
+        </div>
           </div>
           <div class="modal-footer">
             <button class="btn btn-danger" data-bs-dismiss="modal">
