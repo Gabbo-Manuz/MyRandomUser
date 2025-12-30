@@ -18,8 +18,17 @@ Ci sono tre pulsanti principali: Customize, Stars e Chronology.
 | Nome | Funzionamento Generale | Dettagli |
 | :--- | :--- | :--- |
 | Customize | Mostra l'interfaccia di generazioni degli utenti. | Il riquadro a sinistra permette di generare gli utenti selezionando le caratteristiche volute come il numero, genere e nazionalità. Nel riquadro a destra si visualizzeranno tutte le carte generate seguendo uno schema a griglia. Se sono presenti più di 4 carte sarà resa visibile un barra di scroll, posta in basso del riquadro, che permetterà all'utente di capire in che punto si trova nello scroll delle carte. |
-| Stars | Mostra gli utenti salvati | |
-| Chronology | Mostra una cronologia di tutte le generazioni di utenti | Il riquadro a sinistra permette di selezionare quale delle generazioni visualizzare. Il riquadro a destra visualizza la generazione della cronologia scelta. La cronologia mostra solamente le generazioni di utenti senza personalizzazione di genere e nazionalità, in quanto, nonostante usassi il seed e results per generare lo stesso tipo di utenti, mi restituiva una lista di utenti errata. Constatando ciò ho deciso di permette il salvataggio di sole generazione generiche |
+| Stars | Mostra gli utenti salvati | Il riquadro a sinistra viene nascosto per visualizzare al meglio gli utenti salvati. Cliccando sulla stellina si può rimuovere dalla lista dei preferiti l'utente |
+| Chronology | Mostra una cronologia di tutte le generazioni di utenti | Il riquadro a sinistra permette di selezionare quale delle generazioni visualizzare. Il riquadro a destra visualizza la generazione della cronologia scelta. La cronologia mostra solamente le generazioni di utenti senza personalizzazione di genere e nazionalità, in quanto, nonostante usassi il seed e results per generare lo stesso tipo di utenti, mi restituiva una lista di utenti errata. Constatando ciò ho deciso di permette il salvataggio di sole generazioni generiche |
 
 ##  Responsive
+
+Per permettere la visualizzazione della pagina migliore il riquadro a sinistra viene nascosto e le carte verranno disposte una sotto l'altra. La funzione Stars non riceve alcuna modifica, eccetto le funzioni dei due pulsanti: Customize User e Chronology
+
+| Nome | Funzionamento Generale | Dettagli |
+| :--- | :--- | :--- |
+| Customize User | Mostra l'interfaccia di generazioni degli utenti. | Premendo il pulsante apre un modal dove si possono generare gli utenti sempre con le stesse personalizzazioni |
+| Chronology | Mostra una cronologia di tutte le generazioni di utenti | Premendo il pulsante apre un modal dove si possono selezionare le generazione da visualizzare nel riquadro |
+
+
 
